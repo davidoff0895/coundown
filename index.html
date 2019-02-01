@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mazapark countdown</title>
+  <style type="text/css">
+    body {
+      background: darkblue;
+    }
+    .countdown {
+      font-weight: bold;
+      font-size: 5vw;
+      text-align: center;
+      color: #fff;
+    }
+    .countdown__item {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body onload="countdown();">
+  <div class="countdown">
+    <div class="countdown__item-label">До похода в мазапарк осталсь:</div>
+    <div class="countdown__item" id="days"></div>
+    <div class="countdown__item" id="hours"></div>
+    <div class="countdown__item" id="munutes"></div>
+    <div class="countdown__item" id="seconds"></div>
+  </div>
+  <script type="text/javascript">
+    countdown = () => {
+      setInterval(() => {
+        const timeDifference = new Date(new Date(2019, 1, 9, 16, 0, 0) - new Date());
+        const leftDays = timeDifference.getDate();
+        const leftHours = timeDifference.getHours();
+        const leftMinutes = timeDifference.getMinutes();
+        const leftSeconds = timeDifference.getSeconds();
+        document.getElementById('days').innerHTML = `${leftDays} дней `;
+        document.getElementById('hours').innerHTML = `${leftHours} часа `;
+        document.getElementById('munutes').innerHTML = `${leftMinutes} минут `;
+        document.getElementById('seconds').innerHTML = `${leftSeconds} секунд`;
+      }, 1000)
+    }
+  </script>
+</body>
+</html>
